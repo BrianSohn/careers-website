@@ -7,13 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
+    {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" class="mb-4" src="/static/banner.jpg">
     <div class="container">
       <h1 class="text-center mt-2 mb-4">Careers</h1>
-      <img class="img-fluid" id="banner" src="https://2b3bf41f-dd74-46e1-b474-76d633a4e50a-00-39tdhn0anboxd.janeway.replit.dev/static/banner.jpg">
-      <h2 class="text-center mt-2 mb-4">About</h2>
-      <p class="lead">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <p class="lead">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="d-none d-md-block col-md-6">
+          <img src="/static/people.jpg" class="img-fluid border">
+        </div>
+      </div>
       <h2 class="text-center mt-2 mb-4">Open Positions</h2>
       <div>
         {% for job in jobs %}
@@ -21,9 +28,9 @@
         {% endfor %}
       </div>
       <div class="text-center">
-        <button class="btn btn-primary btn-lg">Contact Us</button>
-        <p class="mt-4">Copyright 2024, Brian Sohn</p>
+        <a href="mailto:hello@jovian.ai?subject=Question about Job Openings" class="btn btn-primary btn-lg">Contact Us</a>
       </div>
     </div>
+    {% include 'footer.html' %}
   </body>
 </html>
