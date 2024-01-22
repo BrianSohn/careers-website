@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2 class="mt-4">{{job.title}}</h2>
+  <p class="lead">{{job.location}}</p>
+  <h5>Responsibilities</h5>
+  <ul>
+    {% for line in job.responsibilities.split(".") %}
+      {% if line %}
+        <li>{{line}}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <h5>Requirements</h5>
+  <p>{{job.requirements}}</p>
+  <h5>Salary</h5>
+  <p>{{job.currency}}{{job.salary}}</p>
+{% endblock %}
+   
