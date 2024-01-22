@@ -1,7 +1,7 @@
-import sqlalchemy
 from sqlalchemy import create_engine, text
+import os 
 
-db_connection_string = "mysql+pymysql://atqx5of1i5oefim6ewmd:pscale_pw_4fmq385DvwsgDGc6fKuyCUHRIQl7GhsHiCYxLmtIUfW@aws.connect.psdb.cloud/careers?charset=utf8mb4"
+db_connection_string = os.environ['DB_CONNECTION_STRING']
 
 engine = create_engine(db_connection_string, connect_args={
     "ssl": {
@@ -10,6 +10,8 @@ engine = create_engine(db_connection_string, connect_args={
   }
 )
 
-with engine.connect() as conn: 
-  result = conn.execute(text("select * from jobs"))
-  result_dicts = [dict(row) for row in result.all()]
+def load_jobs_from_db():
+  with engine.connect() as conn: 
+    result = conn.execute(text("select * from jobs"))
+    jobs = [row._asdict() for row in result.all()]
+    return jobs
