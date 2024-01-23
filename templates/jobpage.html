@@ -15,5 +15,39 @@
   <p>{{job.requirements}}</p>
   <h5>Salary</h5>
   <p>{{job.currency}}{{job.salary}}</p>
+
+  <form action="/job/{{job.id}}/apply" method="POST">
+    <div class="mb-2">
+      <label>Full Name</label> <br>
+      <input type="text" name="name" placeholder="John Doe">
+    </div>
+    
+    <div class="mb-2">
+      <label>Email</label> <br>
+      <input type="text" name="email" placeholder="john.doe@gmail.com">
+    </div>
+    
+    <div class="mb-2">
+      <label>LinkedIn URL</label> <br>
+      <input type="text" name="linkedin" placeholder="https://linkedin.com/in/john-doe">
+    </div>
+
+    <div class="mb-2">
+      <label>Education</label> <br>
+      <textarea name="education"></textarea>
+    </div>
+
+    <div class="mb-2">
+      <label>Experience</label> <br>
+      <textarea name="experience"></textarea>
+    </div>
+
+    <div class="mb-2">
+      <label>Resume Link</label> <br>
+      <input type="text" name="resume">
+    </div>
+    
+    <input type="submit">
+  </form>
 {% endblock %}
    
