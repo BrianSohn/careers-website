@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-from database import load_jobs_from_db, load_job_from_db
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db
 
 app = Flask(__name__)
 
@@ -25,9 +25,9 @@ def show_job(id):
 
 @app.route("/job/<id>/apply", methods=["POST"])
 def apply_to_job(id):
-  name = request.form.get("name", "")
-  # store in DB
-  
+  data = request.form
+  name = data.get("name", "")
+  add_application_to_db(id, data) # store in DB
   return redirect(url_for('application_submitted', id=id, name=name))
 
 @app.route("/job/<id>/application_submitted")

@@ -3,7 +3,9 @@
 {% block content %}
 
 <p>
+  {% if name %}
   Dear {{name}}, <br>
+  {% endif %}
   Thank you for applying to the {{ job['title'] }} role. 
   Your application has been submitted. 
 </p>
